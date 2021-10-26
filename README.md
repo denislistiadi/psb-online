@@ -13,7 +13,7 @@ Untuk Admin:
 * Daftar Informasi Pengguna
 * Daftar Informasi Calon Siswa Baru
 * Detail Informasi Calon Siswa Baru
-* Mengubah Status Penfataran (*Diterima / Cadangan / Tidak Diterima*)
+* Mengubah Status Pendaftaran (**Diterima / Cadangan / Tidak Diterima**)
 
 ## Petunjuk Instalasi
 
