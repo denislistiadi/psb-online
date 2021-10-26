@@ -1,0 +1,6 @@
+.login-image {
+    background-image: url(../images/login.svg);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
