@@ -2,21 +2,34 @@
 
 PSB Online adalah aplikasi Pendaftaran Siswa Baru berbasis web menggunakan PHP dan MySQL.
 
+Terdiri dari fitur:
+
+Untuk Siswa:
+* Registrasi akun pengguna siswa
+* Form Pendaftaran Siswa Baru
+* Status Pendaftaran
+
+Untuk Admin:
+* Daftar Informasi Pengguna
+* Daftar Informasi Calon Siswa Baru
+* Detail Informasi Calon Siswa Baru
+* Mengubah Status Pendaftaran (**Diterima / Cadangan / Tidak Diterima**)
+
 ## Petunjuk Instalasi
 
 1. Aktifkan xampp atau laragon
 2. Buka phpMyAdmin di localhost
 3. Buat database dengan nama **psb**
-4. Import file _psb.sql_
+4. Import file _psb.sql_ ke database anda
 5. Setting file _koneksi.php_
    ```php
     <?php
 
     // inisialisasi variabel 
-    $server = 'localhost';
-    $user = 'root';
-    $password = '';
-    $nama_database = 'psb';
+    $server = 'localhost'; // sesuai server database
+    $user = 'root'; // username akun database
+    $password = ''; // password database
+    $nama_database = 'psb'; // nama database
 
     // fungsi menghubungkan ke database
     $db = mysqli_connect($server, $user, $password, $nama_database);
@@ -34,14 +47,21 @@ PSB Online adalah aplikasi Pendaftaran Siswa Baru berbasis web menggunakan PHP d
 
 #### Akun Login
 
-* Admin
-    username: admin
-    password: admin
+Admin
+
+* username: admin
+* password: admin
+    
+Siswa
+* username: siswa
+* password: siswa
+    
+Atau Buat akun sendiri
 
 ## Struktur Folder
 
 ``` 
-_PSB
+___PSB
     ├── _images
     │   ├── login.svg
     │   └── register.svg
