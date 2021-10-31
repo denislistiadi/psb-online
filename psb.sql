@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 23, 2021 at 02:20 PM
+-- Generation Time: Oct 29, 2021 at 09:59 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -44,13 +44,14 @@ CREATE TABLE `pendaftaran` (
 --
 
 INSERT INTO `pendaftaran` (`id`, `nama`, `nisn`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `asal_sekolah`, `alamat`, `status`) VALUES
-('P-01', 'Deswita', '987654321', 'Perempuan', 'Pemalang', '2021-10-01', 'SMP Negeri 86 Nusantara', 'Pemalang', 'Cadangan'),
-('P-02', 'Deswita', '987654321', 'Perempuan', 'Pemalang', '2021-10-01', 'SMP Negeri 86 Nusantara', 'Pemalang', 'Tidak Diterima'),
-('P-03', 'Deswita', '987654321', 'Perempuan', 'Pemalang', '2021-10-01', 'SMP Negeri 86 Nusantara', 'Pemalang', 'Diterima'),
-('P-04', 'Alex', '12345', 'Laki-laki', 'Pemalang', '2021-10-07', 'SMP Negeri 86 Nusantara', 'Pemalang', 'Diterima'),
-('P-05', 'Ahmad', '123456785', 'Laki-laki', 'Semarang', '1990-12-12', 'SMP Negeri 86 Nusantara', 'Jakarta', 'Masih Seleksi'),
-('P-06', 'Slamet', '956354', 'Laki-laki', 'Semarang', '1998-01-06', 'SMP Negeri 86 Nusantara', 'Pemalang', 'Diterima'),
-('P-07', 'Bejo Suloyo', '8376323', 'Laki-laki', 'Pekalongan', '1998-12-22', 'SLTP 2 Pekalongan', 'Sumedang', 'Masih Seleksi');
+('1', 'Deswita', '987654321', 'Perempuan', 'Pemalang', '2021-10-01', 'SMP Negeri 86 Nusantara', 'Pemalang', 'Diterima'),
+('2', 'Bejo Suloyo', '8376323', 'Laki-laki', 'Pekalongan', '1998-12-22', 'SLTP 2 Pekalongan', 'Sumedang', 'Masih Seleksi'),
+('3', 'Slamet', '956354', 'Laki-laki', 'Semarang', '1998-01-06', 'SMP Negeri 86 Nusantara', 'Pemalang', 'Diterima'),
+('4', 'Ahmad', '123456785', 'Laki-laki', 'Semarang', '1990-12-12', 'SMP Negeri 86 Nusantara', 'Jakarta', 'Masih Seleksi'),
+('5', 'Alex', '12345', 'Laki-laki', 'Pemalang', '2021-10-07', 'SMP Negeri 86 Nusantara', 'Pemalang', 'Tidak Diterima'),
+('6', 'Dita', '987654321', 'Perempuan', 'Pemalang', '2021-10-01', 'SMP Negeri 86 Nusantara', 'Pemalang', 'Diterima'),
+('7', 'Dewita', '987654321', 'Perempuan', 'Pemalang', '2021-10-01', 'SMP Negeri 86 Nusantara', 'Pemalang', 'Tidak Diterima'),
+('8', 'Bambang Sugiyono', '00065675465675', 'Laki-laki', 'Bandung', '2004-07-15', 'SMP 4 Bandung', 'Bandung, Jawa Barat', 'Diterima');
 
 -- --------------------------------------------------------
 
@@ -74,7 +75,10 @@ INSERT INTO `user` (`id`, `name`, `pass`, `type`) VALUES
 ('2', 'siswa', 'siswa', 'siswa'),
 ('3', 'Denis Listiadi', '12345', 'siswa'),
 ('4', 'Slamet', 'slamet', 'siswa'),
-('5', 'Bejo', 'bejo', 'siswa');
+('5', 'Bejo', 'bejo', 'siswa'),
+('6', 'Maikel', 'maikel', 'siswa'),
+('7', 'Alex', 'alex', 'siswa'),
+('8', 'murid', 'murid', 'siswa');
 
 --
 -- Indexes for dumped tables

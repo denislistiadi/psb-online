@@ -9,6 +9,7 @@ include 'koneksi.php';
 
 // fungsi set sesi jika true
 if(isset($_SESSION['sesi'])){
+    $header = "- Pengguna";
 
     // import header
     include 'header.php';

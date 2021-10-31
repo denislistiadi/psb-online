@@ -7,20 +7,8 @@ include '../koneksi.php';
 if(isset($_POST['simpan'])){
     extract($_POST);
 
-    // mengambil data id tabel pendaftaran
-    $query1 = mysqli_query($db, "SELECT id FROM pendaftaran");
-
-    // mengecek banyak kolom id
-    $data = mysqli_num_rows($query1);
-
-    // mengambil data id dan ditambah 1
-    $num = $data+1;
-
-    // menggabungkan string P-0 dan hasil $num
-    $id_siswa ="P-0" .$num;
-
     // menginisialisasi variabel dengan data yang diinputkan
-    $id = $id_siswa;
+    $id = $_POST['id'];
     $nama = $_POST['nama'];
     $nisn = $_POST['nisn'];
     $kelamin = $_POST['kelamin'];

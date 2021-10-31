@@ -25,15 +25,17 @@ if (isset($_POST['submit'])) {
         if($data_user['type'] =="siswa"){
             $_SESSION['sesi'] = $data_user['id'];
             $_SESSION['type'] = "siswa";
+            $_SESSION['nama'] = $data_user['name'];
 
             // jika siswa akan dibawa kehalaman status.php
-            echo "<meta http-equiv='refresh' content='0; url=status.php'>";
+            echo "<meta http-equiv='refresh' content='0; url=index.php'>";
         }else{
             $_SESSION['sesi'] = $data_user['id'];
             $_SESSION['type'] = "admin";
+            $_SESSION['nama'] = $data_user['name'];
             
-            // jika admin akan dibawa ke halaman index
-            echo "<meta http-equiv='refresh' content='0; url=index.php'>";   
+            // jika admin akan dibawa ke halaman dashboard
+            echo "<meta http-equiv='refresh' content='0; url=dashboard.php'>";   
         };
     } else {
 

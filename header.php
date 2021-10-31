@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Title -->
-    <title>PSB Online</title>
+    <title>PSB Online <?php echo $header ;?></title>
 </head>
 
 <!-- body -->
@@ -27,7 +27,7 @@
     
     <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
-        <a class="navbar-brand" href="#"><i class="fas fa-swatchbook"></i> PSB Online</a>
+        <a class="navbar-brand" href="/"><i class="fas fa-swatchbook"></i> PSB Online</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -59,7 +59,10 @@
 
                 } else {
                     echo '<li class="nav-item">
-                    <a class="nav-link" href="pendaftaran.php">Pendaftaran <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="pendaftaran.php">Pendaftaran<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="status.php">Status</a>
                 </li>';
                 }
 
@@ -69,7 +72,7 @@
 
             <!-- tombol logout -->
             <form class="form-inline my-2 my-lg-0">
-                <a class="dropdown-item btn btn-white bg-light text-center" href="logout.php">Logout</a>
+                <a class="dropdown-item btn btn-white bg-light text-center" href="logout.php"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
             </form>
         </div>
     </nav>

@@ -5,6 +5,7 @@ include 'koneksi.php';
 
 // fungsi cek sesi
 if(isset($_SESSION['sesi'])){
+    $header = "- Siswa Cadangan";
     include 'header.php';
 
 ?>

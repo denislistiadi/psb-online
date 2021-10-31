@@ -1,23 +1,33 @@
 <?php
 
+// session
 session_start();
+
+// import koneksi
 include 'koneksi.php';
 
-// fungsi cek sesi
+// cek session
 if(isset($_SESSION['sesi'])){
-    $header = "- Siswa Diterima";
-    include 'header.php';
+
+        $header = "- Siswa Seleksi";
+    
+        // import header
+        include 'header.php';
 
 ?>
 
 <!-- container -->
 <div class="container">    
-    <div class="card my-2">
-        <h3 class="card-header text-center">Data Siswa Diterima</h3>
-        <div class="card-body container o-hidden border-0 shadow-lg">
+    <div class="card my-2 o-hidden border-0 shadow-lg">
 
-            <!-- Tabel Siswa Diterima -->
+        <!-- heading Data seleksi Siswa -->
+        <h3 class="card-header text-center">Data Seleksi Calon Siswa</h3>
+        <div class="card-body container">
+            
+            <!-- Tabel data seleksi siswa -->
             <table class="table table-bordered nowrap" id="dataTable">
+                
+                <!-- header tabel -->
                 <thead class="thead-dark">
                     <tr>
                         <th>NO</th>
@@ -28,19 +38,21 @@ if(isset($_SESSION['sesi'])){
                         <th>DETAIL SISWA</th>
                     </tr>
                 </thead>
+
+                <!-- body tabel -->
                 <tbody>
                     
                 <?php  
 
-                    // mengambil data tabel pendaftaran dengan kondisi status Diterima
-                    $query = mysqli_query($db, "SELECT * FROM pendaftaran WHERE status='Diterima'");
+                    // mengambil data tabel pendaftaran dengan kondisi status Masih Seleksi
+                    $query = mysqli_query($db, "SELECT * FROM pendaftaran WHERE status='Masih Seleksi'");
                     $data = mysqli_fetch_array($query);
 
                     // cek kolom dari pendaftaran
                     if(mysqli_num_rows($query) >0) {
                         $no = 1;
                         
-                        // loop data tabel pendaftaran kondisi diterima
+                        // loop data tabel pendaftaran kondisi masih seleksi
                         do{
 
                 ?>

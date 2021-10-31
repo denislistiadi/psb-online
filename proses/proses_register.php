@@ -28,9 +28,9 @@ if(isset($_POST['submit'])){
     // fungsi pengecekan $query
     if($query) {
 
-        // jika berhasil tampilkan alert berhasil dan load ke halaman pendaftaran.php
+        // jika berhasil tampilkan alert berhasil dan load ke halaman login.php
         echo "<script>alert('Berhasil Register')</script>";
-        echo "<meta http-equiv='refresh' content='0; url=../pendaftaran.php'>";
+        echo "<meta http-equiv='refresh' content='0; url=../login.php'>";
     }else{
 
         // jika gagal tampilkan alert gagal 

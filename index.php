@@ -1,92 +1,41 @@
 <?php
 
-// session
 session_start();
 
-// import koneksi
-include 'koneksi.php';
+include_once 'koneksi.php';
 
-// cek session
-if(isset($_SESSION['sesi'])){
+if(isset($_SESSION['sesi'])) {
 
-    // import header
-    include 'header.php';
+    $header = "";
+    include_once 'header.php';
 
 ?>
 
-<!-- container -->
-<div class="container">    
-    <div class="card my-2 o-hidden border-0 shadow-lg">
-
-        <!-- heading Data seleksi Siswa -->
-        <h3 class="card-header text-center">Data Seleksi Calon Siswa</h3>
-        <div class="card-body container">
-            
-            <!-- Tabel data seleksi siswa -->
-            <table class="table table-bordered nowrap" id="dataTable">
-                
-                <!-- header tabel -->
-                <thead class="thead-dark">
-                    <tr>
-                        <th>NO</th>
-                        <th>NISN</th>
-                        <th>NAMA SISWA</th>
-                        <th>ASAL SEKOLAH</th>
-                        <th>STATUS PENERIMAAN</th>
-                        <th>DETAIL SISWA</th>
-                    </tr>
-                </thead>
-
-                <!-- body tabel -->
-                <tbody>
-                    
-                <?php  
-
-                    // mengambil data tabel pendaftaran dengan kondisi status Masih Seleksi
-                    $query = mysqli_query($db, "SELECT * FROM pendaftaran WHERE status='Masih Seleksi'");
-                    $data = mysqli_fetch_array($query);
-
-                    // cek kolom dari pendaftaran
-                    if(mysqli_num_rows($query) >0) {
-                        $no = 1;
-                        
-                        // loop data tabel pendaftaran kondisi masih seleksi
-                        do{
-
-                ?>
-                    <tr>
-                        <td><?=$no++;?></td>
-                        <td><?=$data['nisn'];?></td>
-                        <td><?=$data['nama'];?></td>
-                        <td><?=$data['asal_sekolah'];?></td>
-                        <td><?=$data['status'];?></td>
-                        <td>
-                            <a role="button" name="submit" href="detail.php?id=<?=$data['id'];?>" class="btn btn-sm btn-secondary">Lihat Detail</a>
-                        </td>
-                    </tr>
-                <?php 
-                        }while($data = mysqli_fetch_assoc($query));
-                    }else{
-
-                        // jika false
-                        echo "<tr><td colspan='7'><center>Belum ada data!</center></td></tr>";
-                    }
-                ?>
-                </tbody>
-            </table>
+<div class="container my-4">
+    <h3 class="text-secondary text-center">Halo, <?php echo $_SESSION['nama'];?></h3>
+    <hr class="mx-2">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h4 class="m-0 font-weight-bold text-dark">PENERIMAAN SISWA BARU ONLINE</h4>
+        </div>
+        <div class="card-body">
+            <div class="text-center">
+                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="https://img.freepik.com/free-vector/group-students-school_52683-43231.jpg?size=626&ext=jpg" alt="...">
+            </div>
+            <p class="text-secondary">Dalam era informasi dan komunikasi yang semakin maju saat ini maka kami melakukan sebuah langkah maju dalam rangka memberikan pelayanan yang lebih baik dan lebih mudah kepada seluruh masyarakat dengan membuka pendaftaran secara Online. Dengan cara ini orang tua / wali calon siswa dapat dengan mudah mendaftarkan anak-anaknya ke sekolah, tanpa harus datang secara langsung melainkan dengan cara mengisi data pendaftaran dari rumah dengan menggunakan fasilitas internet, baik itu menggunakan komputer maupun gadget.</p>
         </div>
     </div>
 </div>
 
 <?php
 
-include 'footer.php';
+include_once 'footer.php';
 
 } else {
     echo "<script>
-            alert('Silahkan Login Terlebih Dahulu!');
-            window.location = 'login.php';
-        </script>";
+        alert('Silahkan Login Terlebih Dahulu!');
+        window.location = 'login.php';
+</script>";
 }
 
 ?>

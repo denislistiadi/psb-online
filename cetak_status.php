@@ -8,15 +8,12 @@ include 'koneksi.php';
 
 // fungsi pengecekan sesi
 if(isset($_SESSION['sesi'])){
-
     // import header.php
+    $header = "- Status Siswa";
     include 'header.php';
 
-    // mengambil data id
-    $id = $_GET['id'];
-
     // ambil data tabel pendaftaran
-    $query = mysqli_query($db, "SELECT * FROM pendaftaran WHERE id='$id'");
+    $query = mysqli_query($db, "SELECT * FROM pendaftaran WHERE id='$_SESSION[sesi]'");
     $data = mysqli_fetch_array($query);
 
     // fungsi konversi tanggal 
@@ -119,19 +116,15 @@ if(isset($_SESSION['sesi'])){
                         <?php echo $data['status']; ?>
                     </div>
                 </div>
-                <hr>
-                <div class="row  justify-content-center">
-                    <a target="_blank" onclick="window.print()" class="btn btn-primary">Cetak</a>      
-                    <a role="button" name="submit" href="proses/proses_diterima.php?id=<?=$data['id'];?>" class="btn mx-2 btn-success">Diterima</a>
-                    <a role="button" name="submit" href="proses/proses_cadangan.php?id=<?=$data['id'];?>" class="btn mx-2 btn-warning">Cadangan</a>
-                    <a role="button" name="submit" href="proses/proses_ditolak.php?id=<?=$data['id'];?>" class="btn mx-2 btn-danger">Tidak Diterima</a>
-                </div>
             </div>
         </div>
     </div>
 </div>
 
-                    
+<script>
+            
+            window.print();
+        </script>"              
 
 
 <?php

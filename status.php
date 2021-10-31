@@ -1,71 +1,138 @@
 <?php
 
+// sesi
 session_start();
+
+// import koneksi.php
 include 'koneksi.php';
-$tgl=date('Y-m-d');
 
-
+// fungsi pengecekan sesi
 if(isset($_SESSION['sesi'])){
+
+    
+    $header = "- Status";
+    // import header.php
     include 'header.php';
 
+    // ambil data tabel pendaftaran
+    $query = mysqli_query($db, "SELECT * FROM pendaftaran WHERE id='$_SESSION[sesi]'");
+    $data = mysqli_fetch_array($query);
+
+    // fungsi konversi tanggal 
+    function tanggal_indo($tanggal){
+    	$bulan = [  'bulan',
+                    'Januari',
+                    'Februari',
+                    'Maret',
+                    'April',
+                    'Mei',
+                    'Juni',
+                    'Juli',
+                    'Agustus',
+                    'September',
+                    'Oktober',
+                    'November',
+                    'Desember'
+                ];
+
+        // memecah tanggal bulan tahun
+        $split = explode('-', $tanggal);
+        return $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+    }
 ?>
 
-<div class="container">    
-    <div class="card my-2 o-hidden border-0 shadow-lg">
-        <h3 class="card-header text-center">Status Calon Siswa</h3>
-        <div class="card-body container ">
-            
-            <!-- Tabel Calon Siswa  -->
-            <table class="table table-bordered nowrap" id="dataTable">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>NISN</th>
-                        <th>Asal Sekolah</th>
-                        <th>Status Penerimaan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                <?php  
+<!-- Container -->
+<div class="container py-3">
+    <div class="card">
 
-                    // mengambil data tabel pendaftaran
-                    $query = mysqli_query($db, "SELECT * FROM pendaftaran");
-                    $data = mysqli_fetch_array($query);
+        <!-- Card Header -->
+        <h3 class="card-header text-center">
+            Status Siswa
+        </h3>
 
-                    // cek kolom dari pendaftaran
-                    if(mysqli_num_rows($query) >0) {
-                        $no = 1;
-                        
-                        // loop data tabel pendaftaran
-                        do{
+        <!-- Card Body -->
+        <div class="card-body o-hidden border-0 shadow-lg ">
 
-                ?>
-                    <tr>
-                        <td><?=$no++;?></td>
-                        <td><?=$data['nama'];?></td>
-                        <td><?=$data['nisn'];?></td>
-                        <td><?=$data['asal_sekolah'];?></td>
-                        <td><?=$data['status'];?></td>
-                    </tr>
-                <?php 
-                        }while($data = mysqli_fetch_assoc($query));
-                    }else{
-
-                        // jika false
-                        echo "<tr><td colspan='7'><center>Belum ada data!</center></td></tr>";
-                    }
-                ?>
-                </tbody>
-            </table>
+            <!-- Card Data Siswa -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Nama Lengkap</h6>
+                        </div>
+                    <div class="col-sm-9 text-secondary">
+                        <?php echo $data['nama']; ?>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">NISN</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <?php echo $data['nisn']; ?>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Jenis Kelamin</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <?php echo $data['jenis_kelamin']; ?>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Tempat / Tanggal Lahir</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <?php echo  $data['tempat_lahir'] .  ", " . tanggal_indo($data['tanggal_lahir']); ?>
+                    </div>
+                </div>
+                <hr> 
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Asal Sekolah</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <?php echo $data['asal_sekolah']; ?>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Alamat</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <?php echo $data['alamat']; ?>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Status Pendaftaran</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary font-weight-bold">
+                        <?php echo $data['status']; ?>
+                    </div>
+                </div>
+                <hr>
+                <div class="row  justify-content-center">
+                    <a target="_blank" href="cetak_status.php" class="btn btn-primary">Cetak</a>      
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
+                    
+
+
 <?php
 
-include 'footer.php';
+    include 'footer.php';
 
 } else {
     echo "<script>
