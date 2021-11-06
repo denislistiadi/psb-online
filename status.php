@@ -47,7 +47,7 @@ if(isset($_SESSION['sesi'])){
 
         <!-- Card Header -->
         <h3 class="card-header text-center">
-            Status Siswa
+            Status Pendaftaran Siswa
         </h3>
 
         <!-- Card Body -->
@@ -120,7 +120,7 @@ if(isset($_SESSION['sesi'])){
                 </div>
                 <hr>
                 <div class="row  justify-content-center">
-                    <a target="_blank" href="cetak_status.php" class="btn btn-primary">Cetak</a>      
+                    <a target="_blank" href="cetak_status.php" class="btn btn-primary">Cetak Status Pendaftaran</a>      
                 </div>
             </div>
         </div>

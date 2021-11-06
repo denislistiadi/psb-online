@@ -45,7 +45,7 @@ if(isset($_SESSION['sesi'])){
 
         <!-- Card Header -->
         <h3 class="card-header text-center">
-            Detail Data Siswa
+            Status Pendaftaran Siswa
         </h3>
 
         <!-- Card Body -->

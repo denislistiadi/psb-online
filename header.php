@@ -50,7 +50,7 @@
                         Data Siswa
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/">Siswa Seleksi</a>
+                            <a class="dropdown-item" href="/siswa_seleksi">Siswa Seleksi</a>
                             <a class="dropdown-item" href="siswa_diterima.php">Siswa Diterima</a>
                             <a class="dropdown-item" href="siswa_cadangan.php">Siswa Cadangan</a>
                             <a class="dropdown-item" href="siswa_ditolak.php">Siswa Tidak Diterima</a>
